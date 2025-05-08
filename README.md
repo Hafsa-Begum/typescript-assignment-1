@@ -15,6 +15,7 @@ While types and interfaces share similarities in some case, there are key differ
 - union and intersection types
 - declaration merging
 - function and tuple types
+- Extending Class and Object
 
 Knowing these differences is essential to select the appropriate data shape for the job and optimize TypeScript development.
 
@@ -108,6 +109,27 @@ type Point = [number, number];
 ```
 
 Both type and interface similarly define function types, except for a subtle syntax difference of interface using : vs. => when using type. Type is preferred in this case because it’s shorter and thus easier to read.
+
+### Extending Class and Object
+
+Interfaces can extend other interfaces and classes using the extends keyword. Types can extend other types using intersection (&) types.
+
+```
+
+interface Shape {
+    color: string;
+}
+    
+interface Circle extends Shape {
+    radius: number;
+}
+    
+type Rectangle = Shape & {
+    width: number;
+    height: number;
+};
+
+```
 
 These are differences in type and interface. What do you think? let me know.
 
