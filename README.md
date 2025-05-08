@@ -1,10 +1,10 @@
-# An impactful blog post on Type, Interface, keyof Keyword in Typescript
+# An impactful blog on Type, Interface, keyof Keyword in Typescript
 
 
 1. What are some differences between interfaces and types in TypeScript?
 2. What is the use of the keyof keyword in TypeScript? Provide an example.
 
-## Differences between interfaces and types in TypeScript
+## 1. Differences between interfaces and types in TypeScript
 
 TypeScript is a powerful superset of JavaScript. It has gained popularity among developers for its highly sophisticated typing system. There are two ways of defining data types, such as interfaces and types. Both interface and type are used to define the structure of objects, but they differ in flexibility and usage. While types are used for variables allowing unions, intersections, and more complex type definitions, interfaces shape syntax for classes, properties, methods, and events. But how do we choose between them? Knowing the subtle differences and use cases is essential for efficient development. Let's deep dive to know that.
 
@@ -117,7 +117,7 @@ Types and interfaces have practical use cases in various aspects of TypeScript d
 - When working with complex data structures, multiple types, including object types, are often more flexible and expressive, thanks to their support for union, intersection, and tuple types. They enable developers to create intricate and reusable data structures that can adapt to various scenarios. With mapped types, this flexibility is further enhanced, allowing for even more powerful type manipulation.
 - Interfaces are useful for third-party library integration due to their ability to merge declarations, as mentioned earlier in the declaration merging section. This feature allows developers to customize the type definition of a third-party library to suit the requirements of a particular project.
 
-## Use of the keyof keyword in TypeScript with example
+## 2. Use of the keyof keyword in TypeScript with example
 
 The keyof keyword is used to get new types from an existing object type's keys in TypeScript. It is a TypeScript construct commonly used for building block in generating advanced types from a source object type.
 

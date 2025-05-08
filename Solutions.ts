@@ -1,42 +1,28 @@
 function formatString(input: string, toUpper?: boolean): string{
     if(toUpper === false){
-        console.log(input.toLowerCase())
         return input.toLowerCase();
     }
     else{
-        console.log(input.toUpperCase())
         return input.toUpperCase()
     }
 }
 
-// formatString("Hello");          // Output: "HELLO"
-// formatString("Hello", true);   // Output: "HELLO"
-// formatString("Hello", false);  // Output: "hello"
 
 function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[]{
     const filteredData = items.filter(item => item.rating >= 4  );
-    console.log(filteredData);
+    
     return filteredData;
 }
 
-// const books = [
-//     { title: "Book A", rating: 4.5 },
-//     { title: "Book B", rating: 3.2 },
-//     { title: "Book C", rating: 5.0 }
-//   ];
-  
-// filterByRating(books); 
 
 function concatenateArrays<T>(...arrays: T[][]): T[]{
-    console.log('arrays', [...arrays])
     let concated: T[]  = [];
     
     arrays.map(a=> concated.push(...a));
-    console.log('concate', concated)
+
     return concated;
 }
-concatenateArrays(["a", "b"], ["c"]);       // Output: ["a", "b", "c"]
-concatenateArrays([1, 2], [3, 4], [5]); 
+
 
 class Vehicle {
     private make: string;
@@ -69,16 +55,13 @@ myCar.getModel();
 
 function processValue(value: string | number): number{
     if(typeof(value) === 'string'){
-        console.log('length', value.length);
         return value.length;
     }
     else{
-        console.log('double', value * 2);
         return value * 2;
     }
 }
-processValue("hello"); // Output: 5
-processValue("10");      // Output: 20
+
 
 interface Product {
     name: string;
@@ -90,19 +73,10 @@ interface Product {
         return null;
     }
     else{
-        let highest:Product = products.reduce((max, obj) => obj.price > max.price ? obj : max, products[0]);
-        console.log('highest', highest);
-        return highest;
+        let expensiveProduct:Product = products.reduce((max, obj) => obj.price > max.price ? obj : max, products[0]);
+        return expensiveProduct;
     }
   }
-
-  const products = [
-    { name: "Pen", price: 10 },
-    { name: "Notebook", price: 25 },
-    { name: "Bag", price: 50 }
-  ];
-  
-  getMostExpensiveProduct(products);
 
 
   enum Day {
@@ -117,17 +91,13 @@ interface Product {
   
   function getDayType(day: Day): string{
     if(day === Day.Saturday || day === Day.Sunday){
-        console.log("Weekend")
         return "Weekend";
     }
     else{
-        console.log("Weekday")
         return "Weekday";
     }
   }
 
-getDayType(Day.Monday);   // Output: "Weekday"
-getDayType(Day.Sunday);   // Output: "Weekend"
 
 async function squareAsync(n: number): Promise<number>{
     return new Promise((resolve, reject)=>{
@@ -141,6 +111,3 @@ async function squareAsync(n: number): Promise<number>{
         }
     })
 }
-
-squareAsync(4).then(console.log);        // Output after 1s: 16
-squareAsync(-3).catch(console.error);
