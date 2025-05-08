@@ -60,3 +60,27 @@ type Car = Engine | Battery;
 ```
 
 While interfaces can be combined to form union types, they don’t support intersection types, making union types more versatile and expressive in these situations.
+
+### Declaration Merging
+
+Unlike type, an interface can be defined multiple times, and will be treated as a single interface with members of all declarations being merged.
+
+```
+
+interface Person { name: string; }
+interface Person { age: number; }
+
+// These two declarations become:
+// interface Person { name: string; age: number; }
+
+const person: Person = { name: "Jhon Doe"; age: 30; };
+
+type Animal = {
+    name: string;
+};
+    
+type Animal = { // Error: Duplicate identifier 'Animal'.
+    age: number;
+};
+
+```
