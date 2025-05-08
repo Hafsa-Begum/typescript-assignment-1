@@ -63,7 +63,7 @@ While interfaces can be combined to form union types, they don’t support inter
 
 ### Declaration Merging
 
-Unlike type, an interface can be defined multiple times, and will be treated as a single interface with members of all declarations being merged.
+Unlike type, an interface can be defined multiple times, and will be treated as a single interface with members of all declarations being merged, such as:
 
 ```
 
@@ -78,9 +78,40 @@ const person: Person = { name: "Jhon Doe"; age: 30; };
 type Animal = {
     name: string;
 };
-    
-type Animal = { // Error: Duplicate identifier 'Animal'.
+
+// Error: Duplicate identifier 'Animal'.    
+type Animal = { 
     age: number;
 };
 
 ```
+
+### Function and Tuple Types
+
+Both types and interfaces can shape function types, but types are favored for legibility and advanced capabilities, such as conditional and union types. Tuple types can only be expressed using the type keyword, such as:
+
+```
+// Function using type
+
+type Add =  (num1: number, num2:number) => number;
+
+// Function using interface
+
+interface Add {
+   (num1: number, num2:number): number;
+}
+
+// Tuple using only type
+type Point = [number, number];
+
+```
+
+Both type and interface similarly define function types, except for a subtle syntax difference of interface using : vs. => when using type. Type is preferred in this case because it’s shorter and thus easier to read.
+
+There are difference in type and interface. Now let's know some practical use case for both of these.
+
+Types and interfaces have practical use cases in various aspects of TypeScript development. Depending on the specific situation, one might be more suitable than the other.
+
+- In object-oriented programming, interfaces are better suited due to their ability to extend classes and support inheritance. 
+- When working with complex data structures, multiple types, including object types, are often more flexible and expressive, thanks to their support for union, intersection, and tuple types. They enable developers to create intricate and reusable data structures that can adapt to various scenarios. With mapped types, this flexibility is further enhanced, allowing for even more powerful type manipulation.
+- Interfaces are useful for third-party library integration due to their ability to merge declarations, as mentioned earlier in the declaration merging section. This feature allows developers to customize the type definition of a third-party library to suit the requirements of a particular project.
