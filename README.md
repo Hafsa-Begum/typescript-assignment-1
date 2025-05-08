@@ -109,7 +109,7 @@ type Point = [number, number];
 
 Both type and interface similarly define function types, except for a subtle syntax difference of interface using : vs. => when using type. Type is preferred in this case because it’s shorter and thus easier to read.
 
-These are differences in type and interface. Now let's know some practical use case for both of these.
+These are differences in type and interface. What do you think? let me know.
 
 ## 2. Use of the keyof keyword in TypeScript with example
 
