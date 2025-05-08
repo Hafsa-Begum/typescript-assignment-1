@@ -7,7 +7,7 @@ function formatString(input: string, toUpper?: boolean): string{
     }
 }
 
-
+ 
 function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[]{
     const filteredData = items.filter(item => item.rating >= 4  );
     
@@ -22,7 +22,6 @@ function concatenateArrays<T>(...arrays: T[][]): T[]{
 
     return concated;
 }
-
 
 class Vehicle {
     private make: string;
@@ -48,10 +47,6 @@ class Car extends Vehicle{
     }
 }
 
-const myCar = new Car("Toyota", 2020, "Corolla");
-myCar.getInfo();
-myCar.getModel();
-
 
 function processValue(value: string | number): number{
     if(typeof(value) === 'string'){
@@ -66,9 +61,9 @@ function processValue(value: string | number): number{
 interface Product {
     name: string;
     price: number;
-  }
+}
   
-  function getMostExpensiveProduct(products: Product[]): Product | null{
+function getMostExpensiveProduct(products: Product[]): Product | null{
     if(products.length === 0){
         return null;
     }
@@ -76,10 +71,10 @@ interface Product {
         let expensiveProduct:Product = products.reduce((max, obj) => obj.price > max.price ? obj : max, products[0]);
         return expensiveProduct;
     }
-  }
+}
 
 
-  enum Day {
+enum Day {
     Monday,
     Tuesday,
     Wednesday,
@@ -87,16 +82,16 @@ interface Product {
     Friday,
     Saturday,
     Sunday
-  }
+}
   
-  function getDayType(day: Day): string{
+function getDayType(day: Day): string{
     if(day === Day.Saturday || day === Day.Sunday){
         return "Weekend";
     }
     else{
         return "Weekday";
     }
-  }
+}
 
 
 async function squareAsync(n: number): Promise<number>{
