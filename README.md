@@ -16,3 +16,21 @@ While types and interfaces share similarities in some case, there are key differ
 - function and tuple types
 
 Knowing these differences is essential to select the appropriate data shape for the job and optimize TypeScript development.
+
+### Primitive types
+
+Primitive types are inbuilt types in TypeScripts. They include number, string, boolean, null, and undefined types.
+We can use define a type alias for a primitive type as below:
+
+```
+type Age = number;
+
+```
+We can combine primitive type with union type for making code more readable.
+
+```
+type NullOrUndefined = null | undefined;
+
+```
+
+It’s only possible to alias a primitive value using types, making them the recommended choice for defining primitive types, whereas interfaces can’t be used with primitive types.
