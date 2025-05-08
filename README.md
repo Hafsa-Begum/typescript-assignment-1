@@ -151,4 +151,27 @@ type Developer = {
 type developerKeys = keyof Developer; // "name" | "salary"
 
 ```
-We apply the keyof operator to the Developer type, and we get a developerKeys type in return, which represents all the property names. The result is a union of string literal types: “name” | “salary“:
+We apply the keyof operator to the Developer type, and we get a developerKeys type in return, which represents all the property names. The result is a union of string literal types: “name” | “salary“.
+
+let's see an example of this operator.
+
+```
+
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+
+const account = {
+  id: 1,
+  email: "abc@gmail.com",
+  accountNo: 222,
+};
+
+const id = getProperty(account, "id");  // 1
+const email = getProperty(account, "email");    // "abc@gmail.com"
+
+const invalid = getProperty(account, "password"); // Error: "password" is not a key of account.
+
+```
+
+The keyof operator prevents invalid property access in object, helps developers with IDE intellisense, It helps in Generic reuse where allows writing flexible and reusable utility functions.
